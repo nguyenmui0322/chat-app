@@ -4,7 +4,10 @@ const { Server } = require("socket.io");
 
 require("dotenv").config();
 
+const database = require("./config/database");
 const route = require("./routes/index.route");
+
+database.connect();
 
 const app = express();
 const port = process.env.PORT;
