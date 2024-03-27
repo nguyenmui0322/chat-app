@@ -3,6 +3,7 @@ const router = express.Router();
 
 const controller = require("../controllers/user.controller");
 const validate = require("../validates/user.validate");
+const authMiddleware = require("../middlewares/auth.middleware");
 
 router.get("/register", controller.register);
 
@@ -33,5 +34,7 @@ router.post(
   validate.resetPasswordPost,
   controller.resetPasswordPost
 );
+
+router.get("/info", authMiddleware.requireAuth, controller.info);
 
 module.exports = router;
