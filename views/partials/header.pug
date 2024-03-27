@@ -10,7 +10,11 @@ header.header
           ul 
             li 
               a(href="/") Trang chủ
-            li
-              a(href="/user/login") Đăng nhập
-            li
-              a(href="/user/register") Đăng ký
+            if(user)
+              li
+                a(href="/user/login") Đăng xuất
+            else
+              li
+                a(href="/user/login") Đăng nhập
+              li
+                a(href="/user/register") Đăng ký
