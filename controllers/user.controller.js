@@ -4,7 +4,7 @@ const User = require("../models/user.model");
 // [GET] /user/register
 module.exports.register = async (req, res) => {
   res.render("pages/user/register", {
-    pageTitle: "Đăng kí tài khoản",
+    pageTitle: "Đăng ký tài khoản",
   });
 };
 
@@ -15,6 +15,7 @@ module.exports.registerPost = async (req, res) => {
   });
 
   if (existEmail) {
+    req.flash("error", "Email đã tồn tại!");
     res.redirect("back");
     return;
   }
