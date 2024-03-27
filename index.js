@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const http = require("http");
 const { Server } = require("socket.io");
 
@@ -20,6 +21,9 @@ global._io = io;
 
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(`${__dirname}/public`));
 
