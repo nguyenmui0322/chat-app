@@ -31,7 +31,7 @@ module.exports.registerPost = async (req, res) => {
 
   res.cookie("tokenUser", user.tokenUser);
 
-  res.redirect("/");
+  res.redirect("/chat");
 };
 
 // [GET] /user/login
@@ -71,7 +71,7 @@ module.exports.loginPost = async (req, res) => {
 
   res.cookie("tokenUser", user.tokenUser);
 
-  res.redirect("/");
+  res.redirect("/chat");
 };
 
 // [GET] /user/logout
@@ -189,7 +189,7 @@ module.exports.resetPasswordPost = async (req, res) => {
     }
   );
 
-  res.redirect("/");
+  res.redirect("/chat");
 };
 
 // [GET] /user/info
