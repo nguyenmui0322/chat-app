@@ -22,20 +22,13 @@ block main
                 if(chat.content)
                   .inner-content
                     | #{chat.content}
-            //- .inner-outgoing
-            //-   .inner-content
-            //-     | Thế à? Ok em iu
-            //- .inner-incoming
-            //-   .inner-name Em Yêu
-            //-   .inner-content
-            //-     | Nhanh nha nhanh nha
-            //- .inner-outgoing
-            //-   .inner-content
-            //-     | Anh đến rồi mà có thấy ai đâu em? Khóa cửa mà 
-            //- .inner-incoming
-            //-   .inner-name Em Yêu
-            //-   .inner-content
-            //-     | Thì em bảo là không có ai ở nhà mà
+            div(class="inner-list-typing")
+              div(class="box-typing")
+                div(class="inner-name") Le Van A
+                div(class="inner-dots")
+                  span
+                  span 
+                  span
           .inner-foot
             form(
               class="inner-form"
