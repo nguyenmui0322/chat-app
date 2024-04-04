@@ -4,6 +4,7 @@ const authMiddleware = require("../middlewares/auth.middleware");
 const homeRoutes = require("./home.route");
 const chatRoutes = require("./chat.route");
 const userRoutes = require("./user.route");
+const usersRoutes = require("./users.route");
 
 module.exports = (app) => {
   app.use(userMiddleware.infoUser);
@@ -13,4 +14,6 @@ module.exports = (app) => {
   app.use("/chat", authMiddleware.requireAuth, chatRoutes);
 
   app.use("/user", userRoutes);
+
+  app.use("/users", authMiddleware.requireAuth, usersRoutes);
 };
