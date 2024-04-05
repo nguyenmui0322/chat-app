@@ -25,6 +25,7 @@ module.exports.registerPost = async (req, res) => {
   }
 
   req.body.password = md5(req.body.password);
+  req.body.tokenUser = generateHelper.generateRandomString(20);
 
   const user = new User(req.body);
   await user.save();

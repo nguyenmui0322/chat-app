@@ -61,3 +61,15 @@ if (listBtnAcceptFriend.length > 0) {
     acceptFriend(button);
   });
 }
+
+// SERVER_RETURN_LENGTH_ACCEPT_FRIEND
+const badgeUsersAccept = document.querySelector("[badge-users-accept]");
+if (badgeUsersAccept) {
+  const userId = badgeUsersAccept.getAttribute("badge-users-accept");
+  socket.on("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", (data) => {
+    if (userId === data.userId) {
+      badgeUsersAccept.innerHTML = data.lengthAcceptFriends;
+    }
+  });
+}
+// End SERVER_RETURN_LENGTH_ACCEPT_FRIEND
