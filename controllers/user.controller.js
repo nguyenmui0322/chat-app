@@ -88,7 +88,7 @@ module.exports.loginPost = async (req, res) => {
     });
   });
 
-  res.redirect("/chat");
+  res.redirect("/users/friends");
 };
 
 // [GET] /user/logout
