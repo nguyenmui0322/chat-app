@@ -32,7 +32,7 @@ module.exports.registerPost = async (req, res) => {
 
   res.cookie("tokenUser", user.tokenUser);
 
-  res.redirect("/chat");
+  res.redirect("/");
 };
 
 // [GET] /user/login
@@ -88,7 +88,7 @@ module.exports.loginPost = async (req, res) => {
     });
   });
 
-  res.redirect("/users/friends");
+  res.redirect("/");
 };
 
 // [GET] /user/logout
@@ -222,7 +222,7 @@ module.exports.resetPasswordPost = async (req, res) => {
     }
   );
 
-  res.redirect("/chat");
+  res.redirect("/");
 };
 
 // [GET] /user/info

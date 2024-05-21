@@ -1,4 +1,5 @@
 const Chat = require("../models/chat.model");
+const RoomChat = require("../models/rooms-chat.model");
 
 const uploadToCloudinary = require("../helpers/uploadToCloudinary");
 
@@ -34,6 +35,18 @@ module.exports = (req, res) => {
         fullName: fullName,
         content: data.content,
         images: images,
+      });
+
+      // Gửi thông báo về client
+      const roomChat = await RoomChat.findOne({ _id: roomChatId });
+      const listUserId = roomChat.users
+        .map((user) => user.user_id)
+        .filter((id) => id !== userId);
+
+      socket.broadcast.emit("SERVER_RETURN_ALERT", {
+        roomChatId: roomChatId,
+        listUserId: listUserId,
+        fullName: fullName,
       });
     });
 
