@@ -39,7 +39,7 @@ module.exports.create = async (req, res) => {
 // [POST] /rooms-chat/create
 module.exports.createPost = async (req, res) => {
   const title = req.body.title;
-  const usersId = req.body.usersId;
+  const usersId = [...req.body.usersId];
 
   const dataRoom = {
     title: title,

@@ -1,3 +1,11 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  flex: 1;
+}
 /* box-head */
 .box-head {
   margin-bottom: 30px;
