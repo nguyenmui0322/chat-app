@@ -114,29 +114,27 @@ const showTyping = () => {
 };
 // End Show Typing
 
+// Input Keyup
+const inputChat = document.querySelector(
+  ".chat .inner-form input[name='content']"
+);
+inputChat.addEventListener("keyup", () => {
+  showTyping();
+});
+// End Input Keyup
+
 // Insert Icon To Input
 const emojiPicker = document.querySelector("emoji-picker");
-if (emojiPicker) {
-  const inputChat = document.querySelector(
-    ".chat .inner-form input[name='content']"
-  );
-  emojiPicker.addEventListener("emoji-click", (event) => {
-    const icon = event.detail.unicode;
-    inputChat.value = inputChat.value + icon;
+emojiPicker.addEventListener("emoji-click", (event) => {
+  const icon = event.detail.unicode;
+  inputChat.value = inputChat.value + icon;
 
-    const end = inputChat.value.length;
-    inputChat.setSelectionRange(end, end);
-    inputChat.focus();
+  const end = inputChat.value.length;
+  inputChat.setSelectionRange(end, end);
+  inputChat.focus();
 
-    showTyping();
-  });
-
-  // Input Keyup
-  inputChat.addEventListener("keyup", () => {
-    showTyping();
-  });
-  // End Input Keyup
-}
+  showTyping();
+});
 // End Insert Icon To Input
 
 // End Show Icon Chat
